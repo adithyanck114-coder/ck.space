@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ck.space | Dream • Build • Grow</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f6efe5;
+    color: #493725;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+header {
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dfd0bd;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #493725;
+    margin-left: 18px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #a17b55;
+}
+
+.hero {
+    min-height: 420px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 550px;
+    animation: appear 1.2s ease;
+}
+
+.script {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #977b60;
+    font-size: 22px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(55px, 9vw, 90px);
+    line-height: 1.1;
+    letter-spacing: -4px;
+}
+
+.tagline {
+    color: #8c745d;
+    margin: 10px 0 20px;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    max-width: 450px;
+}
+
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border: 1px solid #65472f;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #65472f;
+    transition: 0.3s;
+}
+
+.btn.primary {
+    background: #65472f;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: #87684b;
+    color: white;
+}
+
+.art {
+    width: 42%;
+    min-height: 300px;
+    border-radius: 48% 48% 15px 15px;
+    background: linear-gradient(
+        180deg,
+        #e8c49b,
+        #c5a083 45%,
+        #737362 46%,
+        #384238 75%,
+        #252b25
+    );
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.sun {
+    position: absolute;
+    top: 30%;
+    right: 22%;
+    width: 48px;
+    height: 48px;
+    background: #f8e2b7;
+    border-radius: 50%;
+    box-shadow: 0 0 45px #f8e2b7;
+}
+
+.person {
+    height: 145px;
+    width: 90px;
+    background: #242522;
+    border-radius: 45px 45px 0 0;
+    position: relative;
+}
+
+.person::before {
+    content: "";
+    position: absolute;
+    top: -48px;
+    left: 17px;
+    width: 56px;
+    height: 65px;
+    background: #242522;
+    border-radius: 50%;
+}
+
+section.content {
+    padding: 45px 8%;
+    border-top: 1px solid #dfd0bd;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.skills span {
+    background: #e9dac7;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.quote {
+    margin-top: 22px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #94795e;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: #fcf8f1;
+    border: 1px solid #eadccc;
+    border-radius: 14px;
+    padding: 22px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #6b4b3012;
+}
+
+.card h3 {
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #806d5b;
+    font-size: 14px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 4px 10px;
+    background: #eee2d2;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.thoughts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.thought {
+    padding: 15px;
+    border-left: 2px solid #c9ac8d;
+}
+
+.thought h3 {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+footer {
+    padding: 22px 8%;
+    background: #e9dac7;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 50px;
+    }
+
+    .art {
+        width: 100%;
+        min-height: 250px;
+    }
+
+    .about-grid,
+    .projects,
+    .thoughts {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ck.space</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#thoughts">Thoughts</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+        <div class="script">Hello, I'm</div>
+
+        <h1>ck.space</h1>
+
+        <div class="tagline">DREAM · BUILD · GROW</div>
+
+        <p>
+            Welcome to my little corner of the internet.
+            I'm an Electronics and Communication Engineering
+            student who enjoys technology, books, football,
+            and discovering new ideas.
+        </p>
+
+        <div class="buttons">
+            <a class="btn primary" href="#projects">Explore My Work →</a>
+            <a class="btn" href="#contact">Get in Touch</a>
+        </div>
+    </div>
+
+    <div class="art" aria-label="Sunset illustration">
+        <div class="sun"></div>
+        <div class="person"></div>
+    </div>
+
+</section>
+
+<section class="content" id="about">
+
+    <div class="about-grid">
+
+        <div>
+            <h2>About Me</h2>
+
+            <p>
+                I am an EC student pursuing a B.Tech in
+                Electronics and Communication Engineering.
+                I enjoy learning about technology, creating
+                projects, reading, and improving myself.
+            </p>
+
+            <p class="quote">
+                "Small steps every day lead to big results."
+            </p>
+        </div>
+
+        <div>
+            <h2>Skills I'm Exploring</h2>
+
+            <div class="skills">
+                <span>C / C++</span>
+                <span>Python</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>8051 Microcontroller</span>
+                <span>MATLAB</span>
+                <span>Verilog</span>
+                <span>Proteus</span>
+                <span>Circuit Design</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="content" id="projects">
+
+    <h2>Featured Projects</h2>
+
+    <div class="projects">
+
+        <div class="card">
+            <h3>DC Motor Speed Control</h3>
+            <p>
+                A microcontroller-based project exploring
+                motor speed regulation using the 8051.
+            </p>
+            <span class="badge">Embedded Systems</span>
+        </div>
+
+        <div class="card">
+            <h3>Traffic Light Controller</h3>
+            <p>
+                A digital design project using a synchronous
+                counter and Verilog.
+            </p>
+            <span class="badge">Digital Design</span>
+        </div>
+
+        <div class="card">
+            <h3>Smart Dustbin</h3>
+            <p>
+                A mini-project concept exploring a movable
+                dustbin with sensor-based automation.
+            </p>
+            <span class="badge">Electronics</span>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="content" id="thoughts">
+
+    <h2>Latest Thoughts</h2>
+
+    <div class="thoughts">
+
+        <div class="thought">
+            <h3>The Power of Small Habits</h3>
+            <p>Little improvements can make a difference.</p>
+        </div>
+
+        <div class="thought">
+            <h3>Books and New Perspectives</h3>
+            <p>Every book can introduce a new idea.</p>
+        </div>
+
+        <div class="thought">
+            <h3>Football Is More Than a Game</h3>
+            <p>Passion, teamwork, and unforgettable moments.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="content" id="contact">
+
+    <h2>Get in Touch</h2>
+
+    <p>
+        Have a project idea or want to connect?
+        I'd be happy to hear from you.
+    </p>
+
+    <p style="margin-top:15px">
+        Replace this sample email with your own:
+        <a href="mailto:hello@example.com">hello@example.com</a>
+    </p>
+
+</section>
+
+</main>
+
+<footer>
+    <strong>ck.space</strong>
+    <span>Dream · Build · Grow | © 2026</span>
+</footer>
+
+</body>
+</html>
